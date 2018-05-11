@@ -12,3 +12,6 @@ List of utilities:
 * **battery scripts**:
   * *battery_level*: print battery level, and time to empty (or time to full)
   * *b_level*: this script use battery_level to write a log every minute (usefull for statistics)  
+  
+* **mate/caja**:
+  * *Gloobus Preview*: use it with caja (mate DE f.m.) to have a preview of all file thanks to Gloobus Preview software
