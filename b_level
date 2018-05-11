@@ -1,0 +1,17 @@
+#!/bin/bash
+
+## to use with battery_level script!!! 
+## infinite log, every minute write battery log on file, usefull for statistics
+
+file_log=~/.b_level.log
+
+while true;
+	do
+	echo -e "    orario:\t\t" $(date +%H:%M)
+	echo -e "    orario:\t\t" $(date +%H:%M) >> $file_log
+	./battery_level
+	./battery_level >> $file_log
+	sleep 60
+	echo "==================="
+	echo "==================="  >> $file_log
+done
