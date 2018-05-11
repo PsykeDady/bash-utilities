@@ -1,0 +1,9 @@
+#!/bin/bash
+
+title="preview file"
+
+#echo "$CAJA_SCRIPT_SELECTED_FILE_PATHS" >> percorso.txt
+gloobus-preview "$1"
+
+exit 0;
+
