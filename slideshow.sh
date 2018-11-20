@@ -12,7 +12,7 @@ while true; do
 	for i in $(ls); do
 		if [ "$i" != "wall" ]; then
 			#echo "chang wall to $i"
-			cp -f "$i" "wall"
+			cp -f "$i" "wall.jpg"
 			#echo "changed"
 			sleep 120 #write here number of seconds you want to wait
 		fi;
