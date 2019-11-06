@@ -15,3 +15,5 @@ List of utilities:
   
 * **mate/caja**:
   * *Gloobus Preview*: use it with caja (mate DE f.m.) to have a preview of all file thanks to Gloobus Preview software
+*HDMI-utils
+  * *xrandr-multidpi: set multiscreen hidpi configuration with xrandr and framebuffer, with these configurations, you can use with x-server hidpi multiscreen without any  problem (file is confs to set a 2880x1800 primary screen and 1920x1080 secondary screen)
