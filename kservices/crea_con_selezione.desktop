@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+Icon=albumfolder-new
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/octet-stream;inode/directory;
+Actions=creaSelezione
+Encoding=UTF-8
+
+[Desktop Action creaSelezione]
+Name=Crea Con Selezione
+Icon=albumfolder-new
+Exec=/home/archdady/.local/share/kservices5/crea_con_selezione.sh "%U"
