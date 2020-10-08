@@ -1,0 +1,15 @@
+#!/bin/bash
+
+## script da usare al posto di nano per avere l'accesso come amministratore nel caso in cui il file non ha i permessi di scrittura per l'utente corrente
+
+if [[  -w "$1" || ( ! -e "$1" && -w "$(dirname \"$1\")" ) ]]; then 
+        nano "$1";
+else 
+        echo "non puoi scrivere su questo file, vuoi usare sudo?[s/N]"
+        read conferma
+        if [[ $conferma == "s" ]]; then
+                sudo nano "$1";
+        else 
+                echo "annullamento ..." 
+        fi
+fi 
