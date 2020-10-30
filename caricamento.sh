@@ -1,34 +1,70 @@
-#!/bin/bash
-
 #################### ####################
-# this script is under LGPL v3, see LICENSE file or
-# commments at the end of this script for more info
+#
+# this software is released under LGPLv3 license
+# read LICENSE file in this repo or comments at the end of this script for more info.
 #
 #
-# with this script, you can obtain sudo right with nano only if really needed ( you don't have permissions on this file )
+# author: PsykeDady
+# email: psdady@msn.com
+#
+# version of this script: 0.1
 #
 #
-# Author: PsykeDady
-# email : psdady@msn.com
-# Version: 0.1
+# 'Caricamento' create a loading bar with 10 char length with only ASCII character.
+# The meaning of "caricamento" word is italian "loading"
+#
+#
+# Sorry for my bad english :( 
 #
 #################### ####################
 
+function caricamento(){
 
+	if (( $# != 1 )); then
+		echo "devi inserire un solo parametro e deve essere un numero";
+		return 10;
+	fi; 
 
-## script da usare al posto di nano per avere l'accesso come amministratore nel caso in cui il file non ha i permessi di scrittura per l'utente corrente
+	if [[ ! ($1 =~ '^[0-9]+$') ]]; then
+		echo "il parametro inserito non \u00e8 un numero. Inserisci un numero\!"
+	fi;
 
-if [[  -w "$1" || ( ! -e "$1" && -w "$(dirname \"$1\")" ) ]]; then 
-        nano "$1";
-else 
-        echo "non puoi scrivere su questo file, vuoi usare sudo?[s/N]"
-        read conferma
-        if [[ $conferma == "s" ]]; then
-                sudo nano "$1";
-        else 
-                echo "annullamento ..." 
-        fi
-fi 
+	if (( numero<0 || numero> 100)); then
+		echo "il numero inserito deve compreso tra 0 e 100"
+	fi;
+
+	numero=$1
+	spazi=$((100-numero))
+
+	echo -n '|'
+
+	while ((numero>10));
+		do echo -n '█';
+		numero=$((numero-10));
+	done;
+
+	if (( numero == 0 )); then
+		echo -n ''
+	elif (( numero < 5 )); then
+		echo -n '░';
+	elif ((numero == 5 )); then
+		echo -n '▒';
+	elif ((numero <10 )); then 
+		echo -n '▓';
+	else 
+		echo -n '█';
+	fi;
+
+	while ((spazi>=10));
+                 do echo -n ' ';
+                 spazi=$((spazi-10));
+        done;
+
+	echo "|"
+
+	return 0;
+}
+
 
 #################### ####################
 #                    GNU LESSER GENERAL PUBLIC LICENSE
@@ -197,3 +233,5 @@ fi
 # permanent authorization for you to choose that version for the
 # Library.
 #################### ####################
+
+
