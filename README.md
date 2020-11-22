@@ -19,4 +19,5 @@ List of utilities:
 * **xrandr-multidpi**: set multiscreen hidpi configuration with xrandr and framebuffer, with these configurations, you can use with x-server hidpi multiscreen without any  problem (file is confs to set a 2880x1800 primary screen and 1920x1080 secondary screen)
 * **kservices5/plasma**:
  * *crea con selezione (desktop + sh)* : create new dir and copy into the selection of files
+* **caricamento.sh** : show loading bar in bash 
 * **snano** : edit file with nano and obtain sudo grant only if needed
