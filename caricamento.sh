@@ -19,21 +19,44 @@
 #################### ####################
 
 function caricamento(){
-
-	if (( $# != 1 )); then
-		echo "devi inserire un solo parametro e deve essere un numero";
-		return 10;
+	
+	if (( $# > 3 )); then
+		echo "puoi inserire al più tre argomenti";
+		return $#;
 	fi; 
 
-	if [[ ! ($1 =~ '^[0-9]+$') ]]; then
-		echo "il parametro inserito non \u00e8 un numero. Inserisci un numero\!"
+	npar=$#
+	acapo=1
+	i=0
+	debug=0
+	numero=-1;
+	while ((i<npar)); do 
+		case  $1 in 
+			("-n") acapo=0;;
+			([0-9]*) numero=$1;;
+			("-d") debug=1;;
+			(*) echo "il parametro inserito non \u00e8 un numero. Inserisci un numero!";  return 1;;
+		esac
+		i=$((i+1))
+		shift 
+	done;
+
+	if ((numero==-1)); then
+		echo "il numero deve essere passato obbligatoriamente"
+		return 1
 	fi;
+	
+	if ((debug==1)); then
+		echo "debug=ON"
+		if ((acapo==1)); then echo "acapo=ON"; fi;
+		echo "numero passato" $numero
+	fi; 
 
 	if (( numero<0 || numero> 100)); then
 		echo "il numero inserito deve compreso tra 0 e 100"
+		return 1;
 	fi;
 
-	numero=$1
 	spazi=$((100-numero))
 
 	echo -n '|'
@@ -60,11 +83,14 @@ function caricamento(){
                  spazi=$((spazi-10));
         done;
 
-	echo "|"
+	if ((acapo==1)); then
+		echo "|"
+	else 
+		echo -n '|'
+	fi
 
 	return 0;
 }
-
 
 #################### ####################
 #                    GNU LESSER GENERAL PUBLIC LICENSE
