@@ -21,3 +21,6 @@ List of utilities:
  * *crea con selezione (desktop + sh)* : create new dir and copy into the selection of files
 * **caricamento.sh** : show loading bar in bash 
 * **snano** : edit file with nano and obtain sudo grant only if needed
+* archlinux 
+  * installKodi instal and build kodi from git
+  * installInputStream install inputStream plugin for install kodi ( to do after installKodi)
