@@ -24,3 +24,4 @@ List of utilities:
 * archlinux 
   * installKodi instal and build kodi from git
   * installInputStream install inputStream plugin for install kodi ( to do after installKodi)
+* **pomodorotimer.sh** : a pomodoro timer bash implementation (need an alarm file in Path `~/Musica/sounds/alarm.wav`
