@@ -57,8 +57,8 @@ echo "Installare la versione di sviluppo? [s/N]"
 read -r risp
 
 if [[ $risp != "s" && $risp != "S" ]]; then
-	echo -e  "\n" 'git checkout -b Leia origin/Leia'
-	git checkout -b Leia origin/Leia
+	echo -e  "\n" 'git checkout -b Matrix origin/Matrix'
+	git checkout -b Matrix origin/Matrix
 fi
 
 
